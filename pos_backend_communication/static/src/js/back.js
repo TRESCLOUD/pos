@@ -14,7 +14,7 @@ odoo.define('pos_backend_communication.back', function (require) {
         //send message to pos
         if (is_tied_to_pos()) {
             //can only work if the backoffice is opened by the POS
-            window.opener.postMessage(a, location.origin);
+            window.opener.postMessage(a, '*');
         }
     }
 
