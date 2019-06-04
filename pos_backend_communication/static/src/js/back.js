@@ -14,9 +14,11 @@ odoo.define('pos_backend_communication.back', function (require) {
         //send message to pos
         if (is_tied_to_pos()) {
             //can only work if the backoffice is opened by the POS
-            //modificado por trescloud, error Failed to execute 'postMessage' on 'DOMWindow' http vs https
+            // INICIO DEL CODIGO MODIFICADO POR TRESCLOUD
+            // error Failed to execute 'postMessage' on 'DOMWindow' http vs https
             //window.opener.postMessage(a, location.origin);
             window.opener.postMessage(a, '*');
+            // FIN DEL CODIGO MODIFICADO POR TRESCLOUD
         }
     }
 

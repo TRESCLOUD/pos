@@ -8,7 +8,10 @@ odoo.define('pos_backend_communication.tools', function (require) {
 
     function dispatchMessageEvent(message) {
         //don't be tricked by others sites
-        if (message.origin !== window.location.origin) {
+        // INICIO DEL CODIGO MODIFICADO POR TRESCLOUD
+        //if (message.origin !== window.location.origin) {
+        if (!message.origin.endsWith(window.location.host)) {
+        // FIN DEL CODIGO MODIFICADO POR TRESCLOUD
             return console.error('Message coming from untrusted source');
         }
 
