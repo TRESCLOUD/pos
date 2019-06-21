@@ -85,23 +85,24 @@ odoo.define("pos_pricelist.screens", function (require) {
             return current_pricelist;
         },
     });
-
-    screens.ClientListScreenWidget.include({
-        save_changes: function () {
-            if (this.has_client_changed()) {
-                var order = this.pos.get_order(),
-                    pricelist = false;
-                if (this.new_client) {
-                    pricelist = _.findWhere(
-                        this.pos.pricelists,
-                        {'id': this.new_client.property_product_pricelist[0]}
-                    );
-                }
-                order.set_pricelist(pricelist || this.pos.default_pricelist);
-            }
-            return this._super.apply(this, arguments);
-        },
-    });
+    // INCIO DEL CODIGO COMENTADO POR TRESCLOUD
+//    screens.ClientListScreenWidget.include({
+//        save_changes: function () {
+//            if (this.has_client_changed()) {
+//                var order = this.pos.get_order(),
+//                    pricelist = false;
+//                if (this.new_client) {
+//                    pricelist = _.findWhere(
+//                        this.pos.pricelists,
+//                        {'id': this.new_client.property_product_pricelist[0]}
+//                    );
+//                }
+//                order.set_pricelist(pricelist || this.pos.default_pricelist);
+//            }
+//            return this._super.apply(this, arguments);
+//        },
+//    });
+    // FIN DEL CODIGO COMENTADO POR TRESCLOUD
 
     exports.set_pricelist_button = screens.ActionButtonWidget.extend({
         template: 'SetPricelistButton',
